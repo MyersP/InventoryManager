@@ -1,0 +1,72 @@
+﻿@using InventoryManager.Models
+@model List<ContactsFullModel>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="@Url.Content("~/Content/ContactsView.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/ContactsShared.css")" rel="stylesheet" type="text/css" />
+        <title>title</title>
+        
+    </head>
+    <body>
+        <div id="Content" class="ContactsForm">
+            <h1>All Contacts</h1> 
+            @foreach (var viewModel in Model)
+            {
+                <div class="Section">
+                    <label  for="Name" class="input-label">Name: </label>
+                    <input disabled="disabled" class="firstname" name="Name" type="text"  value="@viewModel.FirstName @viewModel.LastName"/>
+
+                    <div id="EmailLabel">Email Address: </div>
+                    <div id="EmailAddress">
+                        <a href="mailto:@viewModel.EmailAddress">@viewModel.EmailAddress</a>
+                    </div>
+                    <div>
+                    
+                        <label for="MobleNumber" class="input-label">Mobile Number: </label>
+                        <input disabled="disabled" id="MobleNumber" maxlength="100" name="MobleNumber" type="text" value="@viewModel.MobleNumber"/>
+                                          
+                        <label for="CustomerType" class="input-label">Customer Type: </label>
+                        <input disabled="disabled" id="CustomerType" maxlength="100" name="CustomerType" type="text" value="@viewModel.CustomerType"/>
+
+                    </div>
+                    <div>
+                                        
+                        <label for="PhoneNumber" class="input-label">Phone Number: </label>
+                        <input disabled="disabled" id="PhoneNumber" maxlength="100" name="PhoneNumber" type="text" value="@viewModel.PhoneNumber"/>
+                        
+                    </div>
+                    
+                    <div id="Address">Address: </div>
+                    <div id="BillingAddress">
+                        <div> @viewModel.BillingAddress </div>
+                        <div> @viewModel.City,  @viewModel.StateOrProvince  </div>
+                        <div> @viewModel.CountryRegion @viewModel.PostalCode </div>
+                    </div>
+                    <div id="ContactLinks">
+                        <ul>
+                            <li>
+                                <a href="@Href("~/view/contact", viewModel.ID)" @(Model.Count == 1 ? "class=hidden" : "")>View Contact</a>
+                            </li>
+                            <li>
+                                <a href="@Href("~/edit/contact", viewModel.ID)">Edit Contact</a>
+                            </li>
+                            <li>
+                                <a href="@Href("~/view/garments", viewModel.ID)">View Garments</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="text" value="@viewModel.ID" id="ID" name="ID" hidden="true"/>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+
+

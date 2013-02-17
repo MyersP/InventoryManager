@@ -1,0 +1,51 @@
+#ButtonCancel 
+{
+    position: absolute;
+    margin-top: -50px;
+    cursor: pointer;
+}
+#ButtonSave
+ {
+    position: absolute;
+    margin-left: -220px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#ButtonDelete 
+{
+    position: absolute;
+    margin-left: 220px;
+    margin-top: -20px;
+    border:red solid;
+    cursor: pointer;
+}
+
+#Instructions
+{
+	line-height: 1.5em;
+	padding: 11px 0 5px 16px;
+	width: 550px;
+}
+
+#Save
+{
+    margin-top: 16px;
+    margin-right: 4px;
+}
+
+#CustomerTypeListLabel
+{
+    font-weight: bold;
+    display: inline-block;
+}
+
+#CustomerType
+{
+    font-size: 13px;
+    height: 22px;
+    width: 198px;
+    margin-left: 1px;
+    display: inline-block;
+    margin-right: 20px;    
+    cursor: pointer;
+}

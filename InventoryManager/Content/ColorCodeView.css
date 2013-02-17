@@ -1,0 +1,44 @@
+
+.ColorSection 
+{
+   display: block;
+   border: black solid thin;
+   padding: 10px;
+   width:550px;
+
+}
+
+.ColorSection div
+{
+   display: inline-block;
+   border: black solid thin;
+   padding: 5px;
+   background-color:white;
+   font-weight: bold;
+   text-align: center;
+}
+
+.Color {
+     width:100px;
+     margin-left: 40px;
+}
+
+.Number {width:20px;}
+.Gender {width:60px;}
+.Location  {width:100px;}
+.Layer {width:100px;}
+#DarkOrange {background-color: darkorange;}
+#LightGreen{background-color: lightgreen;}
+#Red {background-color: red;}
+#Pink {background-color: pink;}
+#Blue {background-color: blue;}
+#DarkGreen {background-color: darkgreen;}
+#LightOrange {background-color: lightsalmon;}
+#Violet{background-color: violet}
+#Lavender{background-color: lavender}
+
+.firstname, .lastname
+{
+    font-size: 1.5em;
+    font-weight: bold
+}

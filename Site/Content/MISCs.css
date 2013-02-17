@@ -1,0 +1,188 @@
+
+
+.firstname, .lastname
+{
+    font-size: 1.5em;
+    font-weight: bold
+}
+ 
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+
+#Header
+{
+    background-color: #fff;
+    padding: 14px 16px 17px;
+    float: left;
+    width: 726px;
+    margin-bottom: 16px;
+}
+
+#Header p
+{
+    margin: 10px 0 0;
+}
+
+.detailBody
+{
+    min-width: 740px;
+    width: 740px;
+}
+
+.detailBody ul.detailsList
+{
+	width:260px;
+	float:left;
+}
+
+.detailBody ul.detailsList li
+{
+	border-top:solid 1px #BFBFBE;
+	padding:8px 0px;
+} 
+
+.detailBody ul.detailsList li.first, .detailBody .collectionsDetail
+{
+	border-top:solid 2px #BFBFBE;
+}
+
+.detailBody .label, #PlanDetailsFooter .label
+{
+	font-weight:bold;
+	margin-right:5px;
+}
+
+.detailBody .collectionsDetail
+{
+	width:440px;
+	padding-top:10px;
+	margin-left:20px;
+	margin-right:10px;
+	float:right;
+}
+
+.detailBody .collectionsDetail ul.collections
+{
+	float:left;
+	margin:2px 2px 10px;
+	width: 140px;
+}
+
+.detailBody .collectionsDetail ul.collections li
+{
+	padding-left:8px;
+	background:transparent url(/images/bullet_33322E_3x3.gif) no-repeat scroll left center;
+	line-height:15px;
+}
+
+#PlanDetailsLegacyMessage, #PlanDetailsFooter
+{
+	clear:both;
+}
+#PlanDetailsLegacyMessage
+{
+	background-color: #ECECEC;
+	margin: 10px 5px 5px 5px;
+	padding: 5px;
+}
+
+#PlanDetailsProjectNameContainer
+{
+	border-top:solid 1px #BFBFBE;
+	width:350px;
+	padding-top:8px;
+}
+
+.block
+{
+	display:block;
+}
+
+.minorText
+{
+	color:#807F7C;
+}
+
+#DoneButton
+{
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.white_content_area
+{
+	float: left;
+	background-color: #fff;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#AccountHeader
+{
+	height: 66px;
+	margin-bottom: 10px;
+	padding: 0px;
+}
+
+#AccountHeader h4
+{
+	margin: 20px 0 20px 16px;
+}
+
+.ie6 #AccountHeader { width: 730px; }
+.ie6 #AccountHeader h4 { padding-left: 10px; margin: 20px 0; }
+
+#Content
+{
+    min-height: 405px;
+}
+
+.ie6 #Content
+{
+	height: 405px;
+	width: 730px;
+}
+
+.validation-icon-success, .validation-icon-failure
+{
+	overflow: hidden;
+}
+
+.ModalBody
+{
+	margin-bottom: 20px;
+}
+
+#Instructions
+{
+	line-height: 1.5em;
+	padding: 11px 0 5px 16px;
+	width: 550px;
+}
+
+#Content #Save
+{
+    margin-top: 16px;
+    margin-right: 4px;
+}
+
+
+#Content .myAccountForm input
+{
+    width: 190px;
+    padding: 6px 5px;
+}
+
