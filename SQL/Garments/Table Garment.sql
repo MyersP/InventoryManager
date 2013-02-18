@@ -10,7 +10,7 @@ GO
 
 CREATE TABLE [dbo].[tbl_Garment](
 	[GarmentID] [int] IDENTITY(1,1) NOT NULL,
-	[PatternCompaniesID] [int] NULL,
+	[PatternNumberID] [int] NULL,
 	[GarmentNameID] [int] NULL,
 	[GarmentLocationID] [int] NULL,
 	[GarmentGenderID] [int] NULL,
@@ -18,6 +18,7 @@ CREATE TABLE [dbo].[tbl_Garment](
 	[GarmentStoredID] [int] NULL,
 	[CustomerID] [int] NULL,
 	[GarmentMeasurementsID] [int] NULL,
+	[GarmentNumber] [nvarchar](50) NULL
 PRIMARY KEY CLUSTERED 
 (
 	[GarmentID] ASC

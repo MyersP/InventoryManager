@@ -84,6 +84,7 @@
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Mappers\MapperShared.cs" />
     <Compile Include="Mappers\MapperGarments.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="Builders\BuilderContacts.cs" />
@@ -95,6 +96,8 @@
     </Compile>
     <Compile Include="Mappers\MapperHelper.cs" />
     <Compile Include="Models\ContactsModel.cs" />
+    <Compile Include="Models\PatternModel.cs" />
+    <Compile Include="Models\SharedModels.cs" />
     <Compile Include="Models\GarmentsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

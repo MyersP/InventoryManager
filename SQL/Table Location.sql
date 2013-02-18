@@ -8,10 +8,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[tlkp_GarmentLocation](
-	[GarmentLocationID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[GarmentLocation] [nvarchar](50) NULL
+CREATE TABLE [dbo].[tlkp_Location](
+	[LocationID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Location] [nvarchar](50) NULL
 ) ON [PRIMARY]
 
 GO
---drop table tlkp_GarmentLocation
+/*
+
+drop table tlkp_Location
+
+*/

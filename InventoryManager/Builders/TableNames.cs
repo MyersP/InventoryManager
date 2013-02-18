@@ -23,26 +23,26 @@ namespace InventoryManager.Builders
         public static readonly string ColorId = "ColorID";
         public static readonly string ItemSourceTablename = "tlkp_ItemSource";
         public static readonly string ItemSourceId = "ItemSourceID";
-        public static readonly string GamentNameTablename = "tlkp_GarmentNames";
-        public static readonly string GamentNameId = "NameID";
+        public static readonly string NameTablename = "tlkp_Names";
+        public static readonly string NameId = "NameID";
         public static readonly string PatternCompaniesTablename = "tlkp_PatternCompanies";
         public static readonly string PatternCompaniesId = "PatternCompaniesID";
-        public static readonly string GarmentLocationTablename = "tlkp_GarmentLocation";
-        public static readonly string GarmentLocationId = "GarmentLocationID";
-        public static readonly string GarmentGenderTablename = "tlkp_GarmentGender";
-        public static readonly string GarmentGenderId = "GenderID";
-        public static readonly string GarmentLayersTablename = "tlkp_GarmentLayers";
-        public static readonly string GarmentLayersId = "LayerID";
-        public static readonly string GarmentEraTablename = "tlkp_GarmentEra";
-        public static readonly string GarmentEra = "EraID";
-        public static readonly string GarmentUseTablename = "tlkp_GarmentUse";
-        public static readonly string GarmentUseId = "UseID";
-        public static readonly string GarmentRegionTablename = "tlkp_GarmentRegion";
-        public static readonly string GarmentRegionId = "RegionID";
+        public static readonly string LocationTablename = "tlkp_Location";
+        public static readonly string LocationId = "LocationID";
+        public static readonly string GenderTablename = "tlkp_Gender";
+        public static readonly string GenderId = "GenderID";
+        public static readonly string LayersTablename = "tlkp_Layers";
+        public static readonly string LayersId = "LayerID";
+        public static readonly string EraTablename = "tlkp_Era";
+        public static readonly string Era = "EraID";
+        public static readonly string UsesTablename = "tlkp_Uses";
+        public static readonly string UsesId = "UseID";
+        public static readonly string RegionTablename = "tlkp_Region";
+        public static readonly string RegionId = "RegionID";
         public static readonly string EmbelishmentNamesTablename = "tlkp_EmbelishmentNames";
         public static readonly string EmbelishmentNamesId = "EmbelishmentID";
-        public static readonly string GarmentCutNamesTablename = "tlkp_GarmentCutNames";
-        public static readonly string GarmentCutNamesId = "GarmentCutNameID";
+        public static readonly string CutNamesTablename = "tlkp_CutNames";
+        public static readonly string CutNamesId = "CutNameID";
 
    
     }

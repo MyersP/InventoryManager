@@ -17,11 +17,11 @@ namespace InventoryManager.Builders
         NewGarmentModel BuildEmptyGarmentsModel();
     }
 
-    class BuilderGarments :TableNames, IBuilderGarments
+    internal class BuilderGarments : TableNames, IBuilderGarments
     {
-
         private readonly IDataAccess _dataAccess = new DataAccess.DataAccess();
-        private IMapperGarments _mapperGarments = new MapperGarments();
+        private readonly IMapperGarments _mapperGarments = new MapperGarments();
+        private readonly IMapperShared _mapperShared = new MapperShared();
 
         public void UpdateGarment(GarmentsFullModel newGarment)
         {
@@ -41,7 +41,7 @@ namespace InventoryManager.Builders
         public List<GarmentsFullModel> GetGarments(string garmentId = "")
         {
 
-            return new List<GarmentsFullModel> { _mapperGarments.MapEmptyGarmentsFullModel() };
+            return new List<GarmentsFullModel> {_mapperGarments.MapEmptyGarmentsFullModel()};
             //var garmentModel = new GarmentsModel();
             //var dataRecords = _dataAccess.DataSelect(garmentModel, GarmentTableName, GarmentId, garmentId);
             //return dataRecords.Select(_mapperGarments.MapDictionaryTofullGarmentsModel).ToList();
@@ -50,159 +50,94 @@ namespace InventoryManager.Builders
         public NewGarmentModel BuildEmptyGarmentsModel()
         {
             var newGarmentModel = _mapperGarments.MapEmptyNewGarmentModel();
-            newGarmentModel.ColorModel = GetColors();
-            newGarmentModel.GarmentCutNamesModel = GetCutNames();
-            newGarmentModel.EmbelishmentNamesModel = GetEmbelishMents();
-            newGarmentModel.GamentRegionModel = GetRegions();
-            newGarmentModel.GarmentEraModel = GetEras();
-            newGarmentModel.GarmentGenderModel = GetGenders();
-            newGarmentModel.GarmentLayerModel = GetLayers();
-            newGarmentModel.GarmentLocationModel = GetGarmentLocations();
-            newGarmentModel.GarmentNameModel = GetGarmentNames();
-            newGarmentModel.GarmentUseModel = GetUses();
-            newGarmentModel.ItemSourceModel = GetSources();
+            newGarmentModel.GarmentInfo = new SharedInfoModel()
+                                              {
+                                                  ColorModel = GetColors(),
+                                                  CutNamesModel = GetCutNames(),
+                                                  EmbelishmentNamesModel = GetEmbelishMents(),
+                                                  RegionModel = GetRegions(),
+                                                  EraModel = GetEras(),
+                                                  GenderModel = GetGenders(),
+                                                  LayerModel = GetLayers(),
+                                                  LocationModel = GetGarmentLocations(),
+                                                  NameModel = GetGarmentNames(),
+                                                  UsesModel = GetUses(),
+                                                  ItemSourceModel = GetSources()
+                                              };
             return newGarmentModel;
         }
 
         private List<ItemSourceModel> GetSources()
         {
-            var dataRecords = _dataAccess.DataSelect(new ItemSourceModel(), ItemSourceTablename, ItemSourceId, string.Empty);
-            return _mapperGarments.MapItemSourceModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new ItemSourceModel(), ItemSourceTablename, ItemSourceId,
+                                                     string.Empty);
+            return _mapperShared.MapItemSourceModel(dataRecords);
         }
 
-        private List<GarmentUseModel> GetUses()
+        private List<UsesModel> GetUses()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentUseModel(), GarmentUseTablename, GarmentUseId, string.Empty);
-            return _mapperGarments.MapGarmentUseModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new UsesModel(), UsesTablename, UsesId, string.Empty);
+            return _mapperShared.MapUseModel(dataRecords);
         }
 
-        private List<GarmentNameModel> GetGarmentNames()
+        private List<NameModel> GetGarmentNames()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentNameModel(), GamentNameTablename, GamentNameId, string.Empty);
-            return _mapperGarments.MapGarmentNameModel(dataRecords); 
+            var dataRecords = _dataAccess.DataSelect(new NameModel(), NameTablename, NameId, string.Empty);
+            return _mapperShared.MapNameModel(dataRecords);
         }
 
-        private List<GarmentLocationModel> GetGarmentLocations()
+        private List<LocationModel> GetGarmentLocations()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentLocationModel(), GarmentLocationTablename, GarmentLocationId, string.Empty);
-            return _mapperGarments.MapGarmentLocationModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new LocationModel(), LocationTablename, LocationId,
+                                                     string.Empty);
+            return _mapperShared.MapLocationModel(dataRecords);
         }
 
-        private List<GarmentLayerModel> GetLayers()
+        private List<LayerModel> GetLayers()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentLayerModel(), GarmentLayersTablename, GarmentLayersId, string.Empty);
-            return _mapperGarments.MapGarmentLayerModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new LayerModel(), LayersTablename, LayersId,
+                                                     string.Empty);
+            return _mapperShared.MapLayerModel(dataRecords);
         }
 
-        private List<GarmentGenderModel> GetGenders()
+        private List<GenderModel> GetGenders()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentGenderModel(), GarmentGenderTablename, GarmentGenderId, string.Empty);
-            return _mapperGarments.MapGarmentGenderModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new GenderModel(), GenderTablename, GenderId,
+                                                     string.Empty);
+            return _mapperShared.MapGenderModel(dataRecords);
         }
 
-        private List<GarmentEraModel> GetEras()
+        private List<EraModel> GetEras()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentEraModel(), GarmentEraTablename, GarmentEra, string.Empty);
-            return _mapperGarments.MapGarmentEraModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new EraModel(), EraTablename, Era, string.Empty);
+            return _mapperShared.MapEraModel(dataRecords);
         }
 
-        private List<GamentRegionModel> GetRegions()
+        private List<RegionModel> GetRegions()
         {
-            var dataRecords = _dataAccess.DataSelect(new GamentRegionModel(), GarmentRegionTablename, GarmentRegionId, string.Empty);
-            return _mapperGarments.MapGamentRegionModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new RegionModel(), RegionTablename, RegionId,
+                                                     string.Empty);
+            return _mapperShared.MapRegionModel(dataRecords);
         }
 
         private List<EmbelishmentNamesModel> GetEmbelishMents()
         {
-            var dataRecords = _dataAccess.DataSelect(new EmbelishmentNamesModel(), EmbelishmentNamesTablename, EmbelishmentNamesId, string.Empty);
-            return _mapperGarments.MapEmbelishMentNamesModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new EmbelishmentNamesModel(), EmbelishmentNamesTablename,
+                                                     EmbelishmentNamesId, string.Empty);
+            return _mapperShared.MapEmbelishMentNamesModel(dataRecords);
         }
 
-        private List<GarmentCutNamesModel> GetCutNames()
+        private List<CutNamesModel> GetCutNames()
         {
-            var dataRecords = _dataAccess.DataSelect(new GarmentCutNamesModel(), GarmentCutNamesTablename, GarmentCutNamesId, string.Empty);
-            return _mapperGarments.MapCutModel(dataRecords);
+            var dataRecords = _dataAccess.DataSelect(new CutNamesModel(), CutNamesTablename, CutNamesId,
+                                                     string.Empty);
+            return _mapperShared.MapCutModel(dataRecords);
         }
 
         public List<ColorModel> GetColors()
         {
             var dataRecords = _dataAccess.DataSelect(new ColorModel(), ColorTablename, ColorId, string.Empty);
-            return _mapperGarments.MapColorModel(dataRecords);
+            return _mapperShared.MapColorModel(dataRecords);
         }
-
-        //public List<GarmentNameModel> GetGarmentNames()
-        //{
-        //    var garmentNameModel = new GarmentNameModel();
-
-        //      var dataRecords = _dataAccess.DataSelect(garmentNameModel, garmentTableName, string.Empty, string.Empty);
-        //    return dataRecords.Select(_mapperGarments.MapDictionaryTofullGarmentsModel).ToList();
-        //    DataSelect
-
-        //    var newGarmentName = new List<GarmentNameModel>();
-        //    try
-        //    {
-        //        var reader = ReadCommand("SELECT * from tlkp_GarmentNames");
-        //        while (reader.Read())
-        //        {
-        //            newGarmentName.Add(new GarmentNameModel { GarmentName = reader[_garmentName].ToString() });
-        //        }
-        //        reader.Close();
-        //        return newGarmentName;
-        //    }
-        //    catch { return newGarmentName; }
-        //    finally { CloseConnection(); }
-        //}
-
-        //public List<GarmentGenderModel> GetGarmentGender()
-        //{
-        //    var newGarmentType = new List<GarmentGenderModel>();
-        //    try
-        //    {
-        //        var reader = ReadCommand("SELECT * from tlkp_GarmentGender");
-        //        while (reader.Read())
-        //        {
-        //            newGarmentType.Add(new GarmentGenderModel { GarmentGender = reader[_garmentGender].ToString() });
-        //        }
-        //        reader.Close();
-        //        return newGarmentType;
-        //    }
-        //    catch { return newGarmentType; }
-        //    finally { CloseConnection(); }
-        //}
-
-        //public List<GarmentLocationModel> GetGarmentLocation()
-        //{
-        //    var newGarmentLocation = new List<GarmentLocationModel>();
-        //    try
-        //    {
-        //        var reader = ReadCommand("SELECT * from tlkp_GarmentLocation");
-        //        while (reader.Read())
-        //        {
-        //            newGarmentLocation.Add(new GarmentLocationModel { GarmentLocation = reader[_garmentLocation].ToString() });
-        //        }
-        //        reader.Close();
-        //        return newGarmentLocation;
-        //    }
-        //    catch { return newGarmentLocation; }
-        //    finally { CloseConnection(); }
-        //}
-
-        //public List<GarmentLayerModel> GetGarmentLayers()
-        //{
-        //    var newGarmentLayer = new List<GarmentLayerModel>();
-        //    try
-        //    {
-        //        var reader = ReadCommand("SELECT * from tlkp_GarmentLayers");
-        //        while (reader.Read())
-        //        {
-        //            newGarmentLayer.Add(new GarmentLayerModel {GarmentLayer = reader[_garmentLayer].ToString()});
-        //        }
-        //        reader.Close();
-        //        return newGarmentLayer;
-        //    }
-        //    catch { return newGarmentLayer; }
-        //    finally{CloseConnection();}
-        //}
-
     }
 }
