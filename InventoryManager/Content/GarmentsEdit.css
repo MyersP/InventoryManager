@@ -1,0 +1,104 @@
+.GarmentsForm
+{
+    float: left;
+    padding: 0 0 16px 16px; 
+    width: 630px;
+    margin-top: 8px;
+}
+
+/*
+.GarmentsForm input
+{
+    width: 190px;
+    padding: 3px 2px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 3px;
+}
+*/
+label.input-label
+{
+    width: 90px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#GarmentNameLabelLabel
+{
+    font-weight: bold;
+    display: inline-block;
+}
+
+.Subsection {
+    display: block;
+    padding: 4px;
+}
+
+.Subsection .DropdownLabel {
+    display:inline-block;
+}
+
+.Subsection select {
+   display:inline-block; 
+   width: 150px;
+   margin-right: 10px;
+   height: 24px;
+}
+
+.DropdownLabel {
+    width: 50px;  
+    font-size: 12px;
+    font-weight: bold; 
+}
+/*
+.SelectInput {
+   display:inline-block; 
+   width: 150px;
+   margin-right: 10px;
+   height: 64px;
+}
+
+.Atributes select {
+       margin-top: 25px;
+}
+*/
+.Atributes {
+    border-bottom:black 1px solid;
+    display: block;
+    padding: 4px;
+}
+
+.Atributes select {
+    width: 150px;
+    margin-right: 10px;
+    height: 24px;
+    display: inline-block;
+    float: left;
+    margin-top: 20px;
+}
+
+.Atributes .ModelInput {
+    height: 64px;
+    float: none;
+    display: block;
+    margin-left: 250px;
+    margin-top: -55px;
+}
+
+.label {
+     margin-top: 8px;
+     display: block;      
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.AtributeButtons {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.ButtonChoice {
+    width: 75px;   
+    display: block;
+    margin-right: 10px;
+}

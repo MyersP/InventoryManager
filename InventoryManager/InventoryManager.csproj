@@ -103,6 +103,7 @@
     <Content Include="Content\ContactsEdit.css" />
     <Content Include="Content\ContactsShared.css" />
     <Content Include="Content\ColorCodeView.css" />
+    <Content Include="Content\GarmentsEdit.css" />
     <Content Include="Content\MISCs.css" />
     <Content Include="Content\Images\Measurements\image00.png" />
     <Content Include="Content\Images\Measurements\MeasureMents.png" />

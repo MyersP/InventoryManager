@@ -11,111 +11,179 @@
 
 <html>
     <head>
+        <link href=@Url.Content("~/Content/GarmentsEdit.css") rel="stylesheet" type="text/css" />
+        <link href=@Url.Content("~/Content/Site.css") rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <div>
-                    <h2>Edit Garments</h2>
-                <div class="Section">
-@*                    <label  for="FirstName" class="input-label">First name: </label>
+        <div id="Content" class="GarmentsForm">
+            <h1 class="Section">Edit Garments</h1>
+            <div class="Section">
+                @*                    <label  for="FirstName" class="input-label">First name: </label>
                     <input name="FirstName" type="text"  value="@Model.FirstName"/>
                     <label  for="LastName" class="input-label">Last name: </label>
                     <input name="LastName" type="text"  value="@Model.LastName"/>*@
+                <h2>Basic Garment Information</h2>
+                <span class="Subsection">
                         
-                    <div>
-                        <div id="ColorListLabel">Color: </div>
-                        @Html.DropDownListFor(m => m.ColorModel,
-                                     new SelectList(Model.ColorModel.OrderBy(x => x.Color),
+                    <div id="GarmentNameLabel" class="DropdownLabel">Name: </div>
+                    @Html.DropDownListFor(m => m.GarmentNameModel,
+                            new SelectList(Model.GarmentNameModel.OrderBy(x => x.GarmentName),
+                                           new DataHelpers().GetNamesFromModel(new GarmentNameModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new GarmentNameModel()).Last(),
+                                           Model.GarmentNameModel)) 
+
+                                           
+                    <div id="GarmentGenderLabel" class="DropdownLabel">Gender: </div>
+                    @Html.DropDownListFor(m => m.GarmentGenderModel,
+                            new SelectList(Model.GarmentGenderModel.OrderBy(x => x.GarmentGender),
+                                           new DataHelpers().GetNamesFromModel(new GarmentGenderModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new GarmentGenderModel()).Last(),
+                                           Model.GarmentGenderModel))  
+                </span> 
+
+                <span class="Subsection">
+                    <div id="GarmentLayerLabel" class="DropdownLabel">Layer: </div>
+                    @Html.DropDownListFor(m => m.GarmentLayerModel,
+                            new SelectList(Model.GarmentLayerModel.OrderBy(x => x.GarmentLayer),
+                                           new DataHelpers().GetNamesFromModel(new GarmentLayerModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new GarmentLayerModel()).Last(),
+                                           Model.GarmentLayerModel))     
+                                                                                           
+                    <div id="GarmentLocationLabel" class="DropdownLabel">Location: </div>
+                    @Html.DropDownListFor(m => m.GarmentLocationModel,
+                            new SelectList(Model.GarmentLocationModel.OrderBy(x => x.GarmentLocation),
+                                           new DataHelpers().GetNamesFromModel(new GarmentLocationModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new GarmentLocationModel()).Last(),
+                                           Model.GarmentLocationModel)) 
+                </span>
+            </div>
+
+            <div class="Section">
+                <h2>Other Garment Properties</h2>
+                <span class="Atributes">
+                    <div id="ColorListLabel" class="label">Color: </div>  
+                           
+                    <span>                       
+                        <label for="NewColor" class="input-label">New Color: </label>
+                        <input maxlength="100" name="NewColor" type="text" value=""/>
+                        <span class="AtributeButtons">
+                            <input class="ButtonChoice" id="GarmentCutNew" type="button" value="Add New >" />
+                        </span>
+                    </span>
+                        
+                    @Html.DropDownListFor(m => m.ColorModel,
+                            new SelectList(Model.ColorModel.OrderBy(x => x.Color),
                                            new DataHelpers().GetNamesFromModel(new ColorModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new ColorModel()).Last(),
-                                           Model.GarmentCutNamesModel))
-                        
-                        <div id="CutNamesLabel">Cut Style: </div>
-                        @Html.DropDownListFor(m => m.GarmentCutNamesModel,
-                                     new SelectList(Model.GarmentCutNamesModel.OrderBy(x => x.GarmentCutName),
+                                           new DataHelpers().GetNamesFromModel(new ColorModel()).Last()))
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="ColorAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="ColorRemove" type="button" value="< Remove" />
+                    </span>
+                    @Html.ListBox("Color", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span> 
+                   
+
+                <span class="Atributes">
+                    <div id="CutNamesLabel" class="label">Cut Style: </div>
+                    @Html.DropDownListFor(m => m.GarmentCutNamesModel,
+                            new SelectList(Model.GarmentCutNamesModel.OrderBy(x => x.GarmentCutName),
                                            new DataHelpers().GetNamesFromModel(new GarmentCutNamesModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new GarmentCutNamesModel()).Last(), 
                                            Model.GarmentCutNamesModel))
 
-                        <div id="EmbelishMentLabel">Embelishment type: </div>
-                        @Html.DropDownListFor(m => m.EmbelishmentNamesModel,
-                                     new SelectList(Model.EmbelishmentNamesModel.OrderBy(x => x.EmbelishmentName),
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="GarmentCutAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="GarmentCutRemove" type="button" value="< Remove" />
+                    </span>                     
+                                                    
+                    @Html.ListBox("GarmentCut", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span>
+                   
+
+                <span class="Atributes">
+                    <div id="EmbelishMentLabel" class="label">Embelishment type: </div>
+                    @Html.DropDownListFor(m => m.EmbelishmentNamesModel,
+                            new SelectList(Model.EmbelishmentNamesModel.OrderBy(x => x.EmbelishmentName),
                                            new DataHelpers().GetNamesFromModel(new EmbelishmentNamesModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new EmbelishmentNamesModel()).Last(),
                                            Model.EmbelishmentNamesModel))
-                                                
-                        <div id="GamentRegionLabel">Region Location: </div>
-                        @Html.DropDownListFor(m => m.GamentRegionModel,
-                                     new SelectList(Model.GamentRegionModel.OrderBy(x => x.GarmentRegion),
+
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="GarmentEmbelishmentAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="GarmentEmbelishmentRemove" type="button" value="< Remove" />
+                    </span>
+
+                    @Html.ListBox("GarmentEmbelishment", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span> 
+                   
+
+                <span class="Atributes">                           
+                    <div id="GamentRegionLabel" class="label">Region Location: </div>
+                    @Html.DropDownListFor(m => m.GamentRegionModel,
+                            new SelectList(Model.GamentRegionModel.OrderBy(x => x.GarmentRegion),
                                            new DataHelpers().GetNamesFromModel(new GamentRegionModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new GamentRegionModel()).Last(),
                                            Model.GamentRegionModel))
-                         
-                        <div id="GarmentEraLabel">Era: </div>
-                        @Html.DropDownListFor(m => m.GarmentEraModel,
-                                     new SelectList(Model.GarmentEraModel.OrderBy(x => x.GarmentEra),
+                                               
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="GamentRegionAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="GamentRegionRemove" type="button" value="< Remove" />
+                    </span>
+
+                    @Html.ListBox("GamentRegion", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span>
+                   
+
+                <span class="Atributes">     
+                    <div id="GarmentEraLabel" class="label">Era: </div>
+                    @Html.DropDownListFor(m => m.GarmentEraModel,
+                            new SelectList(Model.GarmentEraModel.OrderBy(x => x.GarmentEra),
                                            new DataHelpers().GetNamesFromModel(new GarmentEraModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new GarmentEraModel()).Last(),
-                                           Model.GarmentEraModel))                  
-                            
-                        <div id="GarmentGenderLabel">Gender: </div>
-                        @Html.DropDownListFor(m => m.GarmentGenderModel,
-                                     new SelectList(Model.GarmentGenderModel.OrderBy(x => x.GarmentGender),
-                                           new DataHelpers().GetNamesFromModel(new GarmentGenderModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new GarmentGenderModel()).Last(),
-                                           Model.GarmentGenderModel))                 
+                                           Model.GarmentEraModel))                
+                    
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="GarmentEraAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="GarmentEraRemove" type="button" value="< Remove" />
+                    </span>
+                                   
+                    @Html.ListBox("GarmentEra", new SelectList(new[] { "" }),new { @class = "ModelInput" })                                  
+                </span> 
+                   
 
-                        <div id="GarmentLayerLabel">Layer: </div>
-                        @Html.DropDownListFor(m => m.GarmentLayerModel,
-                                     new SelectList(Model.GarmentLayerModel.OrderBy(x => x.GarmentLayer),
-                                           new DataHelpers().GetNamesFromModel(new GarmentLayerModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new GarmentLayerModel()).Last(),
-                                           Model.GarmentLayerModel)) 
-                                                    
-                        <div id="GarmentLocationLabel">Location: </div>
-                        @Html.DropDownListFor(m => m.GarmentLocationModel,
-                                     new SelectList(Model.GarmentLocationModel.OrderBy(x => x.GarmentLocation),
-                                           new DataHelpers().GetNamesFromModel(new GarmentLocationModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new GarmentLocationModel()).Last(),
-                                           Model.GarmentLocationModel)) 
-                                                                      
-                        <div id="GarmentNameLabel">Name: </div>
-                        @Html.DropDownListFor(m => m.GarmentNameModel,
-                                     new SelectList(Model.GarmentNameModel.OrderBy(x => x.GarmentName),
-                                           new DataHelpers().GetNamesFromModel(new GarmentNameModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new GarmentNameModel()).Last(),
-                                           Model.GarmentNameModel)) 
-                                                    
-                        <div id="GarmentUseLabel">Garment Use: </div>
-                        @Html.DropDownListFor(m => m.GarmentUseModel,
-                                     new SelectList(Model.GarmentUseModel.OrderBy(x => x.GarmentUse),
+                <span class="Atributes">
+                    <div id="GarmentUseLabel" class="label">Garment Use: </div>
+                    @Html.DropDownListFor(m => m.GarmentUseModel,
+                            new SelectList(Model.GarmentUseModel.OrderBy(x => x.GarmentUse),
                                            new DataHelpers().GetNamesFromModel(new GarmentUseModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new GarmentUseModel()).Last(),
                                            Model.GarmentUseModel))
-                                            
-                        <div id="GarmentSourceLabel">Construction Sources: </div>
-                        @Html.DropDownListFor(m => m.ItemSourceModel,
-                                     new SelectList(Model.ItemSourceModel.OrderBy(x => x.ItemSource),
+                     
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="GarmentUseAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="GarmentUseRemove" type="button" value="< Remove" />
+                    </span>
+                     
+                    @Html.ListBox("GarmentUse", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span>
+                   
+
+                <span class="Atributes">                      
+                    <div id="GarmentSourceLabel" class="label">Construction Sources: </div>
+                    @Html.DropDownListFor(m => m.ItemSourceModel,
+                            new SelectList(Model.ItemSourceModel.OrderBy(x => x.ItemSource),
                                            new DataHelpers().GetNamesFromModel(new ItemSourceModel()).FirstOrDefault(),
                                            new DataHelpers().GetNamesFromModel(new ItemSourceModel()).Last(),
-                                           Model.ItemSourceModel)) 
-                         
-@*                        <div id="GarmentPatternCompaniesLabel">Made From Pattern: </div>
-                        @Html.DropDownListFor(m => m.PatternCompaniesModel,
-                                     new SelectList(Model.PatternCompaniesModel.OrderBy(x => x.PatternCompanies),
-                                           new DataHelpers().GetNamesFromModel(new PatternCompaniesModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new PatternCompaniesModel()).Last(),
-                                           Model.PatternCompaniesModel))    *@              
-
-                        @*Example of multiselect
-                     @Html.ListBoxFor(m => m.CustomerTypeList, SelectList(Model.CustomerTypeList, "CustomerType", "CustomerType"), new { Multiple = "multiple" })*@
-                        @*
-                        <label for="EmailAddress" class="input-label">Email Address: </label>
-                        <input maxlength="100" name="EmailAddress" type="text" value="@Model.EmailAddress"/>*@
-                    </div>
-                </div>
-               
-          
-              
+                                           Model.ItemSourceModel))
+                     
+                    <span class="AtributeButtons">
+                        <input class="ButtonChoice" id="ItemSourceAdd" type="button" value="Add >" />
+                        <input class="ButtonChoice" id="ItemSourceRemove" type="button" value="< Remove" />
+                    </span>
+                     
+                    @Html.ListBox("ItemSource", new SelectList(new[] { "" }),new { @class = "ModelInput" })
+                </span>     
+            </div>
         </div>
     </body>
 </html>
