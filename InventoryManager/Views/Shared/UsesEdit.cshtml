@@ -3,16 +3,16 @@
 @model InventoryManager.Models.SharedInfoModel
 
 
-
+<div>
     <div class="label">Garment Use: </div>
     <span class="NewItems">
         <label for="NewColor" class="input-label">New Garment Use: </label>
         <input id="AddNewUse" class="InputText" maxlength="100" name="NewColor" type="text" value=""/>
         @Html.DropDownListFor(m => m.UsesModel,
-            new SelectList(Model.UsesModel.OrderBy(x => x.Uses),
-                            new DataHelpers().GetNamesFromModel(new UsesModel()).FirstOrDefault(),
-                            new DataHelpers().GetNamesFromModel(new UsesModel()).Last(),
-                            Model.UsesModel))
+                            new SelectList(Model.UsesModel.OrderBy(x => x.Uses),
+                                           new DataHelpers().GetNamesFromModel(new UsesModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new UsesModel()).Last(),
+                                           Model.UsesModel))
     </span>
     <span class="AtributeButtons">
         <input class="ButtonChoice" id="UseNew" type="button" value="Add New >" />
@@ -20,4 +20,4 @@
         <input class="ButtonChoice" id="UseRemove" type="button" value="< Remove" />
     </span>
     @Html.ListBox("UsesList", new SelectList(new[] { "" }), new { @class = "ModelInput" })
-
+</div>

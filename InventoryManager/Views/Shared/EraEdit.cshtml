@@ -2,7 +2,7 @@
 @using InventoryManager.Models
 @model InventoryManager.Models.SharedInfoModel
 
-
+<div>
     <div class="label">Era: </div>
     <span class="NewItems">
         <label for="NewEra" class="input-label">New Era: </label>
@@ -19,4 +19,4 @@
         <input class="ButtonChoice" id="EraRemove" type="button" value="< Remove" />
     </span>
     @Html.ListBox("EraList", new SelectList(new[] { "" }), new { @class = "ModelInput" })                                  
-
+</div>
