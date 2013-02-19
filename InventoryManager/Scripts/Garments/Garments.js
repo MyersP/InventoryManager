@@ -75,30 +75,30 @@ $(document).ready(function () {
     //end region
 
     //start era
-    $("#GarmentEraNew").click(function () {
-        addItems($("#GarmentEra"), $("#GarmentInfo_EraModel"), $("#AddNewEra").val());
+    $("#EraNew").click(function () {
+        addItems($("#EraList"), $("#EraModel"), $("#AddNewEra").val());
     });
 
-    $("#GarmentEraAdd").click(function () {
-        addItems($("#GarmentEra"), $("#GarmentInfo_EraModel"), $("#GarmentInfo_EraModel").find(":selected").text());
+    $("#EraAdd").click(function () {
+        addItems($("#EraList"), $("#EraModel"), $("#EraModel").find(":selected").text());
     });
 
-    $("#GarmentEraRemove").click(function () {
-        $("#GarmentEra").find("option:selected").remove();
+    $("#EraRemove").click(function () {
+        $("#EraList").find("option:selected").remove();
     });
     //end era
 
     //start use
-    $("#GarmentUseNew").click(function () {
-        addItems($("#GarmentUse"), $("#GarmentInfo_UseModel"), $("#AddNewUse").val());
+    $("#UseNew").click(function () {
+        addItems($("#UsesList"), $("#UseModel"), $("#AddNewUse").val());
     });
 
-    $("#GarmentUseAdd").click(function () {
-        addItems($("#GarmentUse"), $("#GarmentInfo_UseModel"), $("#GarmentInfo_UseModel").find(":selected").text());
+    $("#UseAdd").click(function () {
+        addItems($("#UsesList"), $("#UseModel"), $("#UseModel").find(":selected").text());
     });
 
-    $("#GarmentUseRemove").click(function () {
-        $("#GarmentUse").find("option:selected").remove();
+    $("#UseRemove").click(function () {
+        $("#UsesList").find("option:selected").remove();
     });
     //end use
 

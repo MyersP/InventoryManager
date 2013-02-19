@@ -52,7 +52,7 @@ namespace InventoryManager.Models
         public string UsesID { get; set; }
         public string Uses { get; set; }
     }
-
+    
     public class RegionModel
     {
         public string RegionID { get; set; }

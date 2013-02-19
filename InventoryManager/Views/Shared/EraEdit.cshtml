@@ -1,0 +1,22 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+
+    <div class="label">Era: </div>
+    <span class="NewItems">
+        <label for="NewEra" class="input-label">New Era: </label>
+        <input id="AddNewEra" class="InputText" maxlength="100" name="NewEra" type="text" value=""/>
+        @Html.DropDownListFor(m => m.EraModel,
+            new SelectList(Model.EraModel.OrderBy(x => x.Era),
+                            new DataHelpers().GetNamesFromModel(new EraModel()).FirstOrDefault(),
+                            new DataHelpers().GetNamesFromModel(new EraModel()).Last(),
+                            Model.EraModel))                
+    </span>
+    <span class="AtributeButtons">
+        <input class="ButtonChoice" id="EraNew" type="button" value="Add New >" />
+        <input class="ButtonChoice" id="EraAdd" type="button" value="Add >" />
+        <input class="ButtonChoice" id="EraRemove" type="button" value="< Remove" />
+    </span>
+    @Html.ListBox("EraList", new SelectList(new[] { "" }), new { @class = "ModelInput" })                                  
+
