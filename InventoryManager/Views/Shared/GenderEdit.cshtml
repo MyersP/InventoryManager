@@ -1,0 +1,12 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="DropdownLabel">Gender: </div>
+    @Html.DropDownListFor(m => m.GenderModel,
+                            new SelectList(Model.GenderModel.OrderBy(x => x.Gender),
+                                           new DataHelpers().GetNamesFromModel(new GenderModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new GenderModel()).Last(),
+                                           Model.GenderModel))                        
+</div>

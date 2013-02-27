@@ -20,11 +20,11 @@ $(document).ready(function () {
 
     //start color
     $("#ColorNew").click(function () {
-        addItems($("#Color"), $("#GarmentInfo_ColorModel"), $("#AddNewColor").val());
+        addItems($("#Color"), $("#ColorModel"), $("#AddNewColor").val());
     });
 
     $("#ColorAdd").click(function () {
-        addItems($("#Color"), $("#GarmentInfo_ColorModel"), $("#GarmentInfo_ColorModel").find(":selected").text());
+        addItems($("#Color"), $("#ColorModel"), $("#ColorModel").find(":selected").text());
     });
 
     $("#ColorRemove").click(function () {
@@ -34,11 +34,11 @@ $(document).ready(function () {
 
     //start cut
     $("#GarmentCutNew").click(function () {
-        addItems($("#GarmentCut"), $("#GarmentInfo_GarmentCutNamesModel"), $("#AddNewCut").val());
+        addItems($("#GarmentCut"), $("#CutNamesModel"), $("#AddNewCut").val());
     });
 
     $("#GarmentCutAdd").click(function () {
-        addItems($("#GarmentCut"), $("#GarmentInfo_GarmentCutNamesModel"), $("#GarmentInfo_GarmentCutNamesModel").find(":selected").text());
+        addItems($("#GarmentCut"), $("#CutNamesModel"), $("#CutNamesModel").find(":selected").text());
     });
 
     $("#GarmentCutRemove").click(function () {
@@ -48,11 +48,11 @@ $(document).ready(function () {
 
     //start embel
     $("#GarmentEmbelishmentNew").click(function () {
-        addItems($("#GarmentEmbelishment"), $("#GarmentInfo_EmbelishmentNamesModel"), $("#AddNewEmbelishment").val());
+        addItems($("#GarmentEmbelishment"), $("#EmbelishmentNamesModel"), $("#AddNewEmbelishment").val());
     });
 
     $("#GarmentEmbelishmentAdd").click(function () {
-        addItems($("#GarmentEmbelishment"), $("#GarmentInfo_EmbelishmentNamesModel"), $("#GarmentInfo_EmbelishmentNamesModel").find(":selected").text());
+        addItems($("#GarmentEmbelishment"), $("#EmbelishmentNamesModel"), $("#EmbelishmentNamesModel").find(":selected").text());
     });
 
     $("#GarmentEmbelishmentRemove").click(function () {
@@ -61,15 +61,15 @@ $(document).ready(function () {
     //end embel
 
     //start region
-    $("#GarmentRegionNew").click(function () {
-        addItems($("#GramentRegion"), $("#GarmentInfo_GarmentRegionModel"), $("#AddNewRegion").val());
+    $("#RegionNew").click(function () {
+        addItems($("#GarmentRegion"), $("#RegionModel"), $("#AddNewRegion").val());
     });
 
-    $("#GarmentRegionAdd").click(function () {
-        addItems($("#GarmentRegion"), $("#GarmentInfo_GarmentRegionModel"), $("#GarmentInfo_GarmentRegionModel").find(":selected").text());
+    $("#RegionAdd").click(function () {
+        addItems($("#GarmentRegion"), $("#RegionModel"), $("#RegionModel").find(":selected").text());
     });
 
-    $("#GarmentRegionRemove").click(function () {
+    $("#RegionRemove").click(function () {
         $("#GarmentRegion").find("option:selected").remove();
     });
     //end region
@@ -90,11 +90,11 @@ $(document).ready(function () {
 
     //start use
     $("#UseNew").click(function () {
-        addItems($("#UsesList"), $("#UseModel"), $("#AddNewUse").val());
+        addItems($("#UsesList"), $("#UsesModel"), $("#AddNewUse").val());
     });
 
     $("#UseAdd").click(function () {
-        addItems($("#UsesList"), $("#UseModel"), $("#UseModel").find(":selected").text());
+        addItems($("#UsesList"), $("#UsesModel"), $("#UsesModel").find(":selected").text());
     });
 
     $("#UseRemove").click(function () {
@@ -104,11 +104,11 @@ $(document).ready(function () {
 
     //start source
     $("#ItemSourceNew").click(function () {
-        addItems($("#ItemSource"), $("#GarmentInfo_ItemSourceModel"), $("#AddNewItemSource").val());
+        addItems($("#ItemSource"), $("#ItemSourceModel"), $("#AddNewItemSource").val());
     });
 
     $("#ItemSourceAdd").click(function () {
-        addItems($("#ItemSource"), $("#GarmentInfo_ItemSourceModel"), $("#GarmentInfo_ItemSourceModel").find(":selected").text());
+        addItems($("#ItemSource"), $("#ItemSourceModel"), $("#ItemSourceModel").find(":selected").text());
     });
 
     $("#ItemSourceRemove").click(function () {

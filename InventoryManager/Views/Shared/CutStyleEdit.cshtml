@@ -1,0 +1,22 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    @*    <div id="CutNamesLabel" class="label">Cut Style: </div>*@
+    <span class="NewItems">
+        <label for="NewCut" class="input-label">New Cut Style: </label>
+        <input id="AddNewCut" class="InputText" maxlength="100" name="NewCut" type="text" value=""/>
+        @Html.DropDownListFor(m => m.CutNamesModel,
+                            new SelectList(Model.CutNamesModel.OrderBy(x => x.CutName),
+                                           new DataHelpers().GetNamesFromModel(new CutNamesModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new CutNamesModel()).Last(),
+                                           Model.CutNamesModel))
+    </span>
+    <span class="SharedAttributeButtons">
+        <input class="ButtonChoice" id="GarmentCutNew" type="button" value="Add New >" />
+        <input class="ButtonChoice" id="GarmentCutAdd" type="button" value="Add >" />
+        <input class="ButtonChoice" id="GarmentCutRemove" type="button" value="< Remove" />
+    </span>                                          
+    @Html.ListBox("GarmentCut", new SelectList(new[] { "" }), new { @class = "ModelInput" })                          
+</div>

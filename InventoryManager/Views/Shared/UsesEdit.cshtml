@@ -3,7 +3,7 @@
 @model InventoryManager.Models.SharedInfoModel
 
 
-<div>
+<div class="SharedAttribute">
     <div class="label">Garment Use: </div>
     <span class="NewItems">
         <label for="NewColor" class="input-label">New Garment Use: </label>
@@ -14,7 +14,7 @@
                                            new DataHelpers().GetNamesFromModel(new UsesModel()).Last(),
                                            Model.UsesModel))
     </span>
-    <span class="AtributeButtons">
+    <span class="SharedAttributeButtons">
         <input class="ButtonChoice" id="UseNew" type="button" value="Add New >" />
         <input class="ButtonChoice" id="UseAdd" type="button" value="Add >" />
         <input class="ButtonChoice" id="UseRemove" type="button" value="< Remove" />

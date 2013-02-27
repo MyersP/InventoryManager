@@ -1,0 +1,23 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="label">Fabrication Source: </div>
+    <span class="NewItems">
+        <label for="NewItemSource" class="input-label">New Fabrication Source: </label>
+        <input id="AddNewItemSource" class="InputText" maxlength="100" name="NewItemSource" type="text" value=""/>
+        @Html.DropDownListFor(m => m.ItemSourceModel,
+                            new SelectList(Model.ItemSourceModel.OrderBy(x => x.ItemSource),
+                                           new DataHelpers().GetNamesFromModel(new ItemSourceModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new ItemSourceModel()).Last(),
+                                           Model.ItemSourceModel))
+    </span>
+    <span class="SharedAttributeButtons">
+        <input class="ButtonChoice" id="ItemSourceNew" type="button" value="Add New >" />
+        <input class="ButtonChoice" id="ItemSourceAdd" type="button" value="Add >" />
+        <input class="ButtonChoice" id="ItemSourceRemove" type="button" value="< Remove" />
+    </span>
+                     
+    @Html.ListBox("ItemSource", new SelectList(new[] { "" }),new { @class = "ModelInput" })                         
+</div>

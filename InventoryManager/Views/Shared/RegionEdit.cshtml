@@ -1,0 +1,22 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="label">Region Location: </div>
+    <span class="NewItems">
+        <label for="NewRegion" class="input-label">New Region Location: </label>
+        <input id="AddNewRegion" class="InputText" maxlength="100" name="NewRegion" type="text" value=""/>
+        @Html.DropDownListFor(m => m.RegionModel,
+                            new SelectList(Model.RegionModel.OrderBy(x => x.Region),
+                                           new DataHelpers().GetNamesFromModel(new RegionModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new RegionModel()).Last(),
+                                           Model.RegionModel))
+    </span>                         
+    <span class="SharedAttributeButtons">
+        <input class="ButtonChoice" id="RegionNew" type="button" value="Add New >" />
+        <input class="ButtonChoice" id="RegionAdd" type="button" value="Add >" />
+        <input class="ButtonChoice" id="RegionRemove" type="button" value="< Remove" />
+    </span>
+    @Html.ListBox("GarmentRegion", new SelectList(new[] { "" }), new { @class = "ModelInput" })                        
+</div>

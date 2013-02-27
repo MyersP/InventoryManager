@@ -1,0 +1,12 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="DropdownLabel">Layer: </div>
+    @Html.DropDownListFor(m => m.LayerModel,
+                            new SelectList(Model.LayerModel.OrderBy(x => x.Layer),
+                                           new DataHelpers().GetNamesFromModel(new LayerModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new LayerModel()).Last(),
+                                           Model.LayerModel))                        
+</div>

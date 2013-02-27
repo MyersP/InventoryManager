@@ -1,0 +1,82 @@
+.Subsection {
+    display: block;
+    padding: 4px;
+    padding-left:20px;
+}
+
+.Subsection .DropdownLabel {
+    display:inline-block;
+}
+
+.Subsection select {
+   display:inline-block; 
+   width: 150px;
+   margin-right: 10px;
+   height: 24px;
+}
+
+.DropdownLabel {
+    width: 50px;  
+    font-size: 12px;
+    font-weight: bold; 
+}
+
+.SolidLine {
+    border-bottom:black 1px solid;
+}
+
+.SharedAttribute {
+    display: block;
+    padding: 4px;
+    padding-left: 20px;
+}
+
+.SharedAttribute .input-label {
+    width: 150px;
+    display: block;
+}
+
+.SharedAttribute select {
+    width: 150px;
+    margin-right: 10px;
+    height: 24px;
+    display: block;
+}
+
+.SharedAttribute .InputText {
+    width: 146px;
+    margin-bottom:14px;
+}
+
+span {
+    display: inline-block;
+}
+
+.SharedAttribute .ModelInput {
+    height: 78px;
+    display: inline-block;
+
+}
+
+.label {
+     margin-top: 8px;
+     display: block;      
+     font-size: 12px;
+     font-weight: bold;
+     margin-bottom:10px;
+}
+
+.SharedAttributeButtons {
+    margin-top: 14px;
+}
+
+.ButtonChoice {
+    width: 78px;   
+    margin-right: 10px;
+    display: block;
+    margin-top:4px;
+}
+
+.NewItems {
+    float: left;
+}

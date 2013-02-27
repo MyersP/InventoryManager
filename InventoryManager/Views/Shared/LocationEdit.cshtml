@@ -1,0 +1,12 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="DropdownLabel">Location: </div>
+    @Html.DropDownListFor(m => m.LocationModel,
+                            new SelectList(Model.LocationModel.OrderBy(x => x.Location),
+                                           new DataHelpers().GetNamesFromModel(new LocationModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new LocationModel()).Last(),
+                                           Model.LocationModel))                       
+</div>

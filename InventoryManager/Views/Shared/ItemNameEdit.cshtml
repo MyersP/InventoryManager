@@ -1,0 +1,12 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div id="GarmentNameLabel" class="DropdownLabel">Name: </div>
+    @Html.DropDownListFor(m => m.NameModel,
+                            new SelectList(Model.NameModel.OrderBy(x => x.Name),
+                                           new DataHelpers().GetNamesFromModel(new NameModel()).FirstOrDefault(),
+                                           new DataHelpers().GetNamesFromModel(new NameModel()).Last(),
+                                           Model.NameModel))                        
+</div>

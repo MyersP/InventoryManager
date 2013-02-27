@@ -7,35 +7,18 @@
 }
 <html>
     <head>
-        <link href=@Url.Content("~/Content/GarmentsEdit.css") rel="stylesheet" type="text/css" />
+ 
+        <link href=@Url.Content("~/Content/SharedDescriptorEdit.css") rel="stylesheet" type="text/css" />
         <link href=@Url.Content("~/Content/Site.css") rel="stylesheet" type="text/css" />
-        <script src="@Url.Content("~/Scripts/Garments/Garments.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Garments/SharedAttributes.js")" type="text/javascript"></script>
     </head>
     <body>
            
-        <div class="Section">                  
-            <div id="GarmentGenderLabel" class="DropdownLabel">Gender: </div>
-            @Html.DropDownListFor(m => m.GarmentInfo.GenderModel,
-                            new SelectList(Model.GarmentInfo.GenderModel.OrderBy(x => x.Gender),
-                                           new DataHelpers().GetNamesFromModel(new GenderModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new GenderModel()).Last(),
-                                           Model.GarmentInfo.GenderModel))  
-              
-
+        <div class="Section">
+            @Html.Partial("GenderEdit", Model.GarmentInfo)  
             <span class="Subsection">
-                <div id="GarmentLayerLabel" class="DropdownLabel">Layer: </div>
-                @Html.DropDownListFor(m => m.GarmentInfo.LayerModel,
-                            new SelectList(Model.GarmentInfo.LayerModel.OrderBy(x => x.Layer),
-                                           new DataHelpers().GetNamesFromModel(new LayerModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new LayerModel()).Last(),
-                                           Model.GarmentInfo.LayerModel))     
-                                                                                           
-                <div id="GarmentLocationLabel" class="DropdownLabel">Location: </div>
-                @Html.DropDownListFor(m => m.GarmentInfo.LocationModel,
-                            new SelectList(Model.GarmentInfo.LocationModel.OrderBy(x => x.Location),
-                                           new DataHelpers().GetNamesFromModel(new LocationModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new LocationModel()).Last(),
-                                           Model.GarmentInfo.LocationModel)) 
+                @Html.Partial("LayerEdit", Model.GarmentInfo)
+                @Html.Partial("LocationEdit", Model.GarmentInfo) 
             </span>
         </div>
 
@@ -46,132 +29,34 @@
             <input name="LastName" type="text"  value="@Model.LastName"/>*@
             <h2>Garment Cut</h2>
             <span class="Subsection">
-                <h3>ADD PATTERN COMPANY AND NUMBER!!!</h3>
-                <div id="GarmentNameLabel" class="DropdownLabel">Name: </div>
-                @Html.DropDownListFor(m => m.GarmentInfo.NameModel,
-                            new SelectList(Model.GarmentInfo.NameModel.OrderBy(x => x.Name),
-                                           new DataHelpers().GetNamesFromModel(new NameModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new NameModel()).Last(),
-                                           Model.GarmentInfo.NameModel)) 
-                <span class="Atributes">
-                       
-                    @*    <div id="CutNamesLabel" class="label">Cut Style: </div>*@
-                    <span class="NewItems">
-                        <label for="NewCut" class="input-label">New Cut Style: </label>
-                        <input id="AddNewCut" class="InputText" maxlength="100" name="NewCut" type="text" value=""/>
-                        @Html.DropDownListFor(m => m.GarmentInfo.CutNamesModel,
-                            new SelectList(Model.GarmentInfo.CutNamesModel.OrderBy(x => x.CutName),
-                                           new DataHelpers().GetNamesFromModel(new CutNamesModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new CutNamesModel()).Last(),
-                                           Model.GarmentInfo.CutNamesModel))
-                    </span>
-                    
-                    <span class="AtributeButtons">
-                        <input class="ButtonChoice" id="GarmentCutNew" type="button" value="Add New >" />
-                        <input class="ButtonChoice" id="GarmentCutAdd" type="button" value="Add >" />
-                        <input class="ButtonChoice" id="GarmentCutRemove" type="button" value="< Remove" />
-                    </span>     
-                                                           
-                                                    
-                    @Html.ListBox("GarmentCut", new SelectList(new[] { "" }), new { @class = "ModelInput" })
-                </span>
+                <h3>NOTE: ADD PATTERN COMPANY AND NUMBER!!!</h3>
+                @Html.Partial("ItemNameEdit", Model.GarmentInfo)
+  
+                @Html.Partial("CutStyleEdit", Model.GarmentInfo)
+
             </span>
         </div>
-            
         <div class="Section">
             <h2>Fabrication</h2>
-            <span class="Atributes">
-                <div id="ColorListLabel" class="label">Color: </div>  
-                
-                <span class="NewItems">
-                    <label for="NewColor" class="input-label">New Color: </label>
-                    <input id="AddNewColor" class="InputText" maxlength="100" name="NewColor" type="text" value=""/>
-                    @Html.DropDownListFor(m => m.GarmentInfo.ColorModel,
-                            new SelectList(Model.GarmentInfo.ColorModel.OrderBy(x => x.Color),
-                                           new DataHelpers().GetNamesFromModel(new ColorModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new ColorModel()).Last()))
-                                           
-                </span>
-
-                <span class="AtributeButtons">
-                    <input class="ButtonChoice" id="ColorNew" type="button" value="Add New >" />
-                    <input class="ButtonChoice" id="ColorAdd" type="button" value="Add >" />
-                    <input class="ButtonChoice" id="ColorRemove" type="button" value="< Remove" />
-                </span> 
-                @Html.ListBox("Color", new SelectList(new[] { "" }), new { @class = "ModelInput" })
-            </span>
-                   
-            <span class="Atributes">
-                <div id="EmbelishmentLabel" class="label">Embelishment type: </div>
-                <span class="NewItems">
-                    <label for="NewEmbelishment" class="input-label">New Embelishment: </label>
-                    <input id="AddNewEmbelishment" class="InputText" maxlength="100" name="NewEmbelishment" type="text" value=""/>
-                    @Html.DropDownListFor(m => m.GarmentInfo.EmbelishmentNamesModel,
-                            new SelectList(Model.GarmentInfo.EmbelishmentNamesModel.OrderBy(x => x.EmbelishmentName),
-                                           new DataHelpers().GetNamesFromModel(new EmbelishmentNamesModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new EmbelishmentNamesModel()).Last(),
-                                           Model.GarmentInfo.EmbelishmentNamesModel))
-                </span>
-                <span class="AtributeButtons">
-                    <input class="ButtonChoice" id="GarmentEmbelishmentNew" type="button" value="Add New >" />
-                    <input class="ButtonChoice" id="GarmentEmbelishmentAdd" type="button" value="Add >" />
-                    <input class="ButtonChoice" id="GarmentEmbelishmentRemove" type="button" value="< Remove" />
-                </span>
-
-                @Html.ListBox("GarmentEmbelishment", new SelectList(new[] { "" }), new { @class = "ModelInput" })
-            </span> 
-                   
-            <span class="Atributes">                      
-                <div id="GarmentSourceLabel" class="label">Fabrication Source: </div>
-                <span class="NewItems">
-                    <label for="NewItemSource" class="input-label">New Fabrication Source: </label>
-                    <input id="AddNewItemSource" class="InputText" maxlength="100" name="NewItemSource" type="text" value=""/>
-                    @Html.DropDownListFor(m => m.GarmentInfo.ItemSourceModel,
-                            new SelectList(Model.GarmentInfo.ItemSourceModel.OrderBy(x => x.ItemSource),
-                                           new DataHelpers().GetNamesFromModel(new ItemSourceModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new ItemSourceModel()).Last(),
-                                           Model.GarmentInfo.ItemSourceModel))
-                </span>
-                <span class="AtributeButtons">
-                    <input class="ButtonChoice" id="ItemSourceNew" type="button" value="Add New >" />
-                    <input class="ButtonChoice" id="ItemSourceAdd" type="button" value="Add >" />
-                    <input class="ButtonChoice" id="ItemSourceRemove" type="button" value="< Remove" />
-                </span>
-                     
-                @Html.ListBox("ItemSource", new SelectList(new[] { "" }),new { @class = "ModelInput" })
-            </span>   
-            <div class="Section">
-                <h3>Add Trim Section</h3> 
-            </div> 
-            <div class="Section">
-                    
-                <h3>Add Client list dropdown</h3>   
-                    
-                <span class="Atributes">                           
-                    <div id="GamentRegionLabel" class="label">Region Location: </div>
-                    <span class="NewItems">
-                        <label for="NewRegion" class="input-label">New Region Location: </label>
-                        <input id="AddNewRegion" class="InputText" maxlength="100" name="NewRegion" type="text" value=""/>
-                        @Html.DropDownListFor(m => m.GarmentInfo.RegionModel,
-                            new SelectList(Model.GarmentInfo.RegionModel.OrderBy(x => x.Region),
-                                           new DataHelpers().GetNamesFromModel(new RegionModel()).FirstOrDefault(),
-                                           new DataHelpers().GetNamesFromModel(new RegionModel()).Last(),
-                                           Model.GarmentInfo.RegionModel))
-                    </span>                         
-                    <span class="AtributeButtons">
-                        <input class="ButtonChoice" id="GamentRegionNew" type="button" value="Add New >" />
-                        <input class="ButtonChoice" id="GamentRegionAdd" type="button" value="Add >" />
-                        <input class="ButtonChoice" id="GamentRegionRemove" type="button" value="< Remove" />
-                    </span>
-                    @Html.ListBox("GamentRegion", new SelectList(new[] { "" }), new { @class = "ModelInput" })
-                </span>
-                
-                <span class="Atributes">
-                    @Html.Partial("EraEdit", Model.GarmentInfo)
-                
-                    @Html.Partial("UsesEdit", Model.GarmentInfo)
-                </span>
+            <div class="SolidLine">
+                @Html.Partial("ColorsEdit", Model.GarmentInfo)
             </div>
+
+            <div class="SolidLine">
+                @Html.Partial("EmbelishmentEdit", Model.GarmentInfo)
+            </div> 
+
+            <div class="SolidLine">
+                <h3>NOTE: Add Trim Section</h3> 
+                @Html.Partial("SourceEdit", Model.GarmentInfo)
+            </div> 
+
+            <h3>NOTE: Add Client list dropdown</h3>
+            <div class="SolidLine">                           
+                @Html.Partial("RegionEdit", Model.GarmentInfo)
+            </div>
+            @Html.Partial("EraEdit", Model.GarmentInfo)
+            @Html.Partial("UsesEdit", Model.GarmentInfo)
         </div>
     </body>
 </html>
