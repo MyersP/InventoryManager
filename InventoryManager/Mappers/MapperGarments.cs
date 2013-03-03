@@ -121,7 +121,6 @@ namespace InventoryManager.Mappers
                            GarmentStoredID = string.Empty,
                            PatternNumberID = string.Empty,
                            GarmentId = string.Empty
-                           
                        };
         }
 

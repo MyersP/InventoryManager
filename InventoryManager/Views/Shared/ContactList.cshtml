@@ -1,0 +1,12 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="DropdownLabel">Contact: </div>
+    @Html.DropDownListFor(m => m.BasicContactsModel,
+                            new SelectList(Model.BasicContactsModel.OrderBy(x => x.FullName),
+                                           new DataHelpers().GetNamesFromModel(new BasicContactsModel()).FirstOrDefault(),
+                                                   new DataHelpers().GetNamesFromModel(new BasicContactsModel()).Last(),
+                                                   Model.BasicContactsModel))                        
+</div>

@@ -19,13 +19,13 @@ namespace InventoryManager.DataAccess
 
         public string CheckForNull(string textToCheck)
         {
-            var stringythingy = String.IsNullOrEmpty(textToCheck) ? String.Empty : textToCheck;
+            var stringythingy = String.IsNullOrWhiteSpace(textToCheck) ? "" : textToCheck;
             return stringythingy;
         }
 
         public string ConvertToNull(string textToCheck)
         {
-            var stringythingy = String.IsNullOrEmpty(textToCheck) ? "null" : "'" + textToCheck + "'";
+            var stringythingy = String.IsNullOrWhiteSpace(textToCheck) ? "null" : "'" + textToCheck + "'";
             return stringythingy;
         }
 

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace InventoryManager.Models
 {
 
-    public class PatternNumbers
+    public class PatternNumbersModel
     {
-        public string PatternCompaniesID { get; set; }
+        public string PatternNumberID { get; set; }
         public string PatternCompanies { get; set; }
     }
 
@@ -15,6 +15,12 @@ namespace InventoryManager.Models
     {
         public string NameID { get; set; }
         public string Name { get; set; }
+    }   
+    
+    public class TrimModel
+    {
+        public string TrimNameID { get; set; }
+        public string TrimName { get; set; }
     }
 
     public class EraModel
@@ -78,9 +84,11 @@ namespace InventoryManager.Models
         public string Color { get; set; }
     }
 
+
+
     public class SharedInfoModel
     {
-        public List<PatternNumbers> PatternNumbersModel;
+        public List<PatternNumbersModel> PatternNumbersModel;
         public List<NameModel> NameModel;
         public List<LocationModel> LocationModel;
         public List<GenderModel> GenderModel;
@@ -92,6 +100,8 @@ namespace InventoryManager.Models
         public List<EmbelishmentNamesModel> EmbelishmentNamesModel;
         public List<CutNamesModel> CutNamesModel;
         public List<ColorModel> ColorModel;
+        public List<TrimModel> TrimModel;
+        public List<BasicContactsModel> BasicContactsModel;
     }
 
 }

@@ -26,7 +26,7 @@ namespace InventoryManager.Builders
         public static readonly string NameTablename = "tlkp_Names";
         public static readonly string NameId = "NameID";
         public static readonly string PatternCompaniesTablename = "tlkp_PatternCompanies";
-        public static readonly string PatternCompaniesId = "PatternCompaniesID";
+        public static readonly string PatternCompaniesId = "PatternNumberID";
         public static readonly string LocationTablename = "tlkp_Location";
         public static readonly string LocationId = "LocationID";
         public static readonly string GenderTablename = "tlkp_Gender";
@@ -43,6 +43,9 @@ namespace InventoryManager.Builders
         public static readonly string EmbelishmentNamesId = "EmbelishmentID";
         public static readonly string CutNamesTablename = "tlkp_CutNames";
         public static readonly string CutNamesId = "CutNameID";
+
+        public static readonly string TrimNamesTablename = "tlkp_TrimNames";
+        public static readonly string TrimNamesId = "TrimNameID";
 
    
     }

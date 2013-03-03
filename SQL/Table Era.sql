@@ -1,7 +1,7 @@
 USE [InventoryManagement]
 GO
 
-/****** Object:  Table [dbo].[tlkp_Region]    Script Date: 2/6/2013 10:23:16 PM ******/
+/****** Object:  Table [dbo].[tlkp_Era]]    Script Date: 2/6/2013 10:23:16 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -17,7 +17,7 @@ GO
 /*
 
 
-drop table [tlkp_Region]
+drop table [tlkp_Era]
 
 
 */

@@ -14,7 +14,7 @@ namespace InventoryManager.Builders
         void DeleteGarment(string garmentId);
         void EnterNewGarment(GarmentsModel newGarment);
         List<GarmentsFullModel> GetGarments(string garmentId = "");
-        NewGarmentModel BuildEmptyGarmentsModel();
+        NewGarmentModel BuildGarmentsModel();
     }
 
     internal class BuilderGarments : TableNames, IBuilderGarments
@@ -47,7 +47,7 @@ namespace InventoryManager.Builders
             //return dataRecords.Select(_mapperGarments.MapDictionaryTofullGarmentsModel).ToList();
         }
 
-        public NewGarmentModel BuildEmptyGarmentsModel()
+        public NewGarmentModel BuildGarmentsModel()
         {
             var newGarmentModel = _mapperGarments.MapEmptyNewGarmentModel();
             newGarmentModel.GarmentInfo = new SharedInfoModel()
@@ -62,9 +62,33 @@ namespace InventoryManager.Builders
                                                   LocationModel = GetGarmentLocations(),
                                                   NameModel = GetGarmentNames(),
                                                   UsesModel = GetUses(),
-                                                  ItemSourceModel = GetSources()
+                                                  ItemSourceModel = GetSources(),
+                                                  PatternNumbersModel = GetPatterns(), 
+                                                  TrimModel = GetTrims(),
+                                                  BasicContactsModel = GetBasicContacts()
                                               };
             return newGarmentModel;
+        }
+
+        private List<BasicContactsModel> GetBasicContacts()
+        {
+            var dataRecords = _dataAccess.DataSelect(new ContactsFullModel(), ContactsTablename, ContactsId,
+                              string.Empty);
+            return _mapperShared.MapBasicContactsModel(dataRecords);
+        }
+
+        private List<TrimModel> GetTrims()
+        {
+            var dataRecords = _dataAccess.DataSelect(new TrimModel(), TrimNamesTablename, TrimNamesId,
+                                          string.Empty);
+            return _mapperShared.MapTrimModel(dataRecords);
+        }
+
+        private List<PatternNumbersModel> GetPatterns()
+        {
+            var dataRecords = _dataAccess.DataSelect(new PatternNumbersModel(), PatternCompaniesTablename, PatternCompaniesId,
+                                          string.Empty);
+            return _mapperShared.MapPatternModel(dataRecords);
         }
 
         private List<ItemSourceModel> GetSources()

@@ -87,7 +87,21 @@ $(document).ready(function () {
         $("#EraList").find("option:selected").remove();
     });
     //end era
+    
+    //start Patterns
+    $("#PatternNew").click(function () {
+        addItems($("#PatternList"), $("#PatternNumbersModel"), $("#AddNewPattern").val());
+    });
 
+    $("#PatternAdd").click(function () {
+        addItems($("#PatternList"), $("#PatternNumbersModel"), $("#PatternNumbersModel").find(":selected").text());
+    });
+
+    $("#PatternRemove").click(function () {
+        $("#PatternList").find("option:selected").remove();
+    });
+    //end Patterns
+    
     //start use
     $("#UseNew").click(function () {
         addItems($("#UsesList"), $("#UsesModel"), $("#AddNewUse").val());
@@ -102,6 +116,20 @@ $(document).ready(function () {
     });
     //end use
 
+    //start trim
+    $("#TrimNew").click(function () {
+        addItems($("#TrimList"), $("#TrimModel"), $("#AddNewTrim").val());
+    });
+
+    $("#TrimAdd").click(function () {
+        addItems($("#TrimList"), $("#TrimModel"), $("#TrimModel").find(":selected").text());
+    });
+
+    $("#TrimRemove").click(function () {
+        $("#TrimList").find("option:selected").remove();
+    });
+    //end trim
+    
     //start source
     $("#ItemSourceNew").click(function () {
         addItems($("#ItemSource"), $("#ItemSourceModel"), $("#AddNewItemSource").val());

@@ -1,0 +1,22 @@
+﻿@using InventoryManager.DataAccess
+@using InventoryManager.Models
+@model InventoryManager.Models.SharedInfoModel
+
+<div class="SharedAttribute">
+    <div class="label">Pattern: </div>
+    <span class="NewItems">
+        <label for="NewPattern" class="input-label">New Pattern: </label>
+        <input id="AddNewPattern" class="InputText" maxlength="100" name="NewPattern" type="text" value=""/>
+        @Html.DropDownListFor(m => m.PatternNumbersModel,
+                                     new SelectList(Model.PatternNumbersModel.OrderBy(x => x.PatternCompanies),
+                                                    new DataHelpers().GetNamesFromModel(new PatternNumbersModel()).FirstOrDefault(),
+                                                    new DataHelpers().GetNamesFromModel(new PatternNumbersModel()).Last(),
+                                                    Model.PatternNumbersModel))                
+    </span>
+    <span class="SharedAttributeButtons">
+        <input class="ButtonChoice" id="PatternNew" type="button" value="Add New >" />
+        <input class="ButtonChoice" id="PatternAdd" type="button" value="Add >" />
+        <input class="ButtonChoice" id="PatternRemove" type="button" value="< Remove" />
+    </span>
+    @Html.ListBox("PatternList", new SelectList(new[] { "" }), new { @class = "ModelInput" })                                  
+</div>

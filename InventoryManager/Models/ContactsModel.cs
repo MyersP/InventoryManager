@@ -28,7 +28,13 @@ namespace InventoryManager.Models
     {
         public string CustomerType{ get; set; }
     }
-    
+
+    public class BasicContactsModel
+    {
+        public string ID { get; set; }
+        public string FullName { get; set; }
+    }
+
     public enum ContactColums
     {
         ID,

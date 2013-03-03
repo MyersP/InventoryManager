@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using InventoryManager.Builders;
@@ -52,6 +53,20 @@ namespace InventoryManager.DataAccess
             return datareturned;
         }
 
+        public string WriteCommand(SqlCommand cmd)
+        {
+            var datareturned = string.Empty;
+            if (Con.State != ConnectionState.Open)
+                Con.Open();
+            //cmd.Parameters.Add("@ID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+            var reader = cmd.ExecuteReader();
+            while (reader != null && reader.Read())
+            {
+                datareturned = reader.GetValue(0).ToString();
+            }
+            return datareturned;
+        }
+
         public void CloseConnection()
         {
             if (Con.State == ConnectionState.Open)
@@ -89,19 +104,33 @@ namespace InventoryManager.DataAccess
 
         public string DataUpdate(object objModel, string tableName, string identityColumn, int id)
         {
-            var valuePairs = "{0}={1},";
-            var values = "";
+
+            var columNames = "";
+            var column=string.Empty;
             var fieldList = _dataHelpers.GetNameValuePairFromModel(objModel);
 
-            foreach (KeyValuePair<string, string> kv in fieldList)
+            var commandText = string.Format("UPDATE {0} Set ", tableName);
+
+            var setString = " {0} = @{0},";
+
+            foreach (var kv in fieldList)
             {
-                values = values + string.Format(valuePairs, kv.Key, _dataHelpers.ConvertToNull(kv.Value));
+                columNames = columNames + string.Format(setString, kv.Key);
             }
 
-            var sqlString = string.Format(
-                "UPDATE {0} Set {1} WHERE {2}={3}", tableName, values.TrimEnd(','), identityColumn, id);
+            commandText = commandText + columNames.TrimEnd(',') +
+                string.Format(" WHERE {0} = @ID ", identityColumn);
+   
+            var cmd = new SqlCommand(commandText, Con);
+            cmd.Parameters.AddWithValue("@ID", id);
 
-            return WriteCommand(sqlString);
+            foreach (var kv in fieldList)
+            {
+                column = string.Format("@{0}", kv.Key);
+                cmd.Parameters.AddWithValue(column, _dataHelpers.CheckForNull(kv.Value));
+            }
+            
+                return WriteCommand(cmd);
         }
 
         public void DataDelete(string tableName, string identityColumn, string id)

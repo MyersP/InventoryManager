@@ -29,9 +29,10 @@
             <input name="LastName" type="text"  value="@Model.LastName"/>*@
             <h2>Garment Cut</h2>
             <span class="Subsection">
-                <h3>NOTE: ADD PATTERN COMPANY AND NUMBER!!!</h3>
+                @Html.Partial("PatternEdit", Model.GarmentInfo)
+
                 @Html.Partial("ItemNameEdit", Model.GarmentInfo)
-  
+                
                 @Html.Partial("CutStyleEdit", Model.GarmentInfo)
 
             </span>
@@ -47,12 +48,14 @@
             </div> 
 
             <div class="SolidLine">
-                <h3>NOTE: Add Trim Section</h3> 
+                @Html.Partial("TrimNameEdit", Model.GarmentInfo)
+
                 @Html.Partial("SourceEdit", Model.GarmentInfo)
             </div> 
 
             <h3>NOTE: Add Client list dropdown</h3>
-            <div class="SolidLine">                           
+            <div class="SolidLine">
+                @Html.Partial("ContactList", Model.GarmentInfo)      
                 @Html.Partial("RegionEdit", Model.GarmentInfo)
             </div>
             @Html.Partial("EraEdit", Model.GarmentInfo)

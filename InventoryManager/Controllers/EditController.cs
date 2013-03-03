@@ -32,13 +32,13 @@ namespace InventoryManager.Controllers
             if (!string.IsNullOrEmpty(id))
             {
                // model = BuilderGarments.GetGarments(id).FirstOrDefault();
-                model = BuilderGarments.BuildEmptyGarmentsModel();
+                model = BuilderGarments.BuildGarmentsModel();
             }
 
             else
             {//new contact with empty model to fill out
 
-                model = BuilderGarments.BuildEmptyGarmentsModel();
+                model = BuilderGarments.BuildGarmentsModel();
             }
             return View("GarmentsEdit", model);
         }
