@@ -12,8 +12,7 @@ VALUES ('SCA'),
 ('Dance Club'),
 ('Ren Fair'),
 ('wedding'),
-('client'),
-('bellydance')
+('client')
 GO
 
 select * from [tlkp_Uses] 

@@ -104,4 +104,21 @@ namespace InventoryManager.Models
         public List<BasicContactsModel> BasicContactsModel;
     }
 
+
+    public class GarmentPostBackModel
+    {
+        public string GenderModel { get; set; }
+        public string LayerModel  { get; set; }
+        public string LocationModel { get; set; }
+        public string BasicContactsModel { get; set; }
+        public List<string> PatternList { get; set; }
+        public List<string> ItemSourceList { get; set; }
+        public List<string> TrimList { get; set; }
+        public List<string> UsesList { get; set; }
+        public List<string> EraList { get; set; }
+        public List<string> RegionList { get; set; }
+        public List<string> EmbelishmentList { get; set; }
+        public List<string> CutList { get; set; }
+        public List<string> ColorList { get; set; }
+    }
 }

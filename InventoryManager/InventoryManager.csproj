@@ -142,9 +142,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Measurements\image00.png" />
     <Content Include="Scripts\Garments\SharedAttributes.js" />
-    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.5.1.js" />
-    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -194,6 +194,7 @@
     <Content Include="Views\Shared\PatternEdit.cshtml" />
     <Content Include="Views\Shared\TrimNameEdit.cshtml" />
     <Content Include="Views\Shared\ContactList.cshtml" />
+    <None Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
