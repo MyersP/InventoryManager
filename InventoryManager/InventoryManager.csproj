@@ -78,12 +78,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\BuilderFabrics.cs" />
     <Compile Include="Builders\TableNames.cs" />
     <Compile Include="Controllers\DeleteController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Mappers\MapperFabric.cs" />
     <Compile Include="Mappers\MapperShared.cs" />
     <Compile Include="Mappers\MapperGarments.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
@@ -96,6 +98,9 @@
     </Compile>
     <Compile Include="Mappers\MapperHelper.cs" />
     <Compile Include="Models\ContactsModel.cs" />
+    <Compile Include="Models\CareModel.cs" />
+    <Compile Include="Models\FabricModel.cs" />
+    <Compile Include="Models\FiberModel.cs" />
     <Compile Include="Models\PatternModel.cs" />
     <Compile Include="Models\SharedModels.cs" />
     <Compile Include="Models\GarmentsModel.cs" />
@@ -195,6 +200,8 @@
     <Content Include="Views\Shared\TrimNameEdit.cshtml" />
     <Content Include="Views\Shared\ContactList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Edit\FabricsEdit.cshtml" />
+    <Content Include="Views\View\SizesView.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
@@ -228,7 +235,7 @@
     <Content Include="Views\View\GarmentsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\View\SizesView.cshtml" />
+    <Content Include="Views\View\FabricView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\View\ContactsView.cshtml" />

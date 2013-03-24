@@ -9,10 +9,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[tlkp_FiberPercent](
-	[id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[percent] [int] NULL
+	[PercentID] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Percent] [int] NULL
 ) ON [PRIMARY]
 
 GO
--- drop table [tlkp_FiberPercent]
+/*
+
+ drop table [tlkp_FiberPercent]
+
+ */
 

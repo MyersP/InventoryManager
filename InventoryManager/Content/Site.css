@@ -16,6 +16,12 @@ section {
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
+ul 
+{
+    list-style-type: none;
+    padding:0; 
+    margin:0;
+}
 
 .Section 
 {
@@ -52,46 +58,52 @@ section {
 #Content 
 {
     min-height: 405px;
-    float: left;
     background-color: #fff;
     margin-bottom: 40px;
     width: 100%;
+    display: inline-block;
 }
 
 #fixedWidthContainer 
 {
     margin: 0 auto;
-    padding: 0 20px;
-    width: 950px;
+    padding: 0 0px;    
 }
 
 #LeftMenuContainer 
 {
     background-color: #FFFFFF;
-    float: left;
     margin: 0 10px 0 0;
     padding: 10px;
-    width: 120px;
+    width: 100px;
+    display: inline-block;
 }
 
 #TwoColumnContent #LeftColumn 
 {
     clear: both;
-    float: left;
     width: 100px;
+    display: inline-block;
+    position: absolute;
 }
 
 #fixedWidthContainer #TwoColumnContent #RightColumn 
 {
-    float: left;
     width: 758px;
+    display: inline-block;
 }
+
+ #RightColumn 
+{
+    position: absolute;
+    margin-left: 130px;
+}
+
 
 #Header
 {
     background-color: #fff;
     padding: 14px 16px 17px;
-    float: left;
     width: 726px;
     margin-bottom: 16px;
 }

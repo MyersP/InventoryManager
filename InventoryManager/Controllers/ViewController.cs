@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InventoryManager.Builders;
 using InventoryManager.DataAccess;
 
 namespace InventoryManager.Controllers
@@ -40,6 +41,12 @@ namespace InventoryManager.Controllers
         {
             var model = BuilderGarments.GetGarments(customerId);
             return View("SizesView", model);
+        }
+
+        public ActionResult Fabric()
+        {
+            var model = BuilderFabrics.GetFabrics();
+            return View("FabricView", model);
         }
 
         public ActionResult Colors(string customerId)

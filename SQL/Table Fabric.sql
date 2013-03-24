@@ -12,7 +12,8 @@ CREATE TABLE [dbo].[tbl_Fabric](
 	[FabricID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[CareID] [int] NULL,
 	[Quantity] [int] NULL,
-	[WeaveID] [int] NULL
+	[WeaveID] [int] NULL,
+	[FabricWidthID] [int] NULL
 ) ON [PRIMARY]
 
 GO

@@ -1,11 +1,10 @@
 ﻿@using InventoryManager.DataAccess
 @using InventoryManager.Models
-@model InventoryManager.Models.NewGarmentModel
+@model InventoryManager.Models.NewFabricModel
 
 @{
-    ViewBag.Title = "Gaments Edit";
+    ViewBag.Title = "Fabric Edit";
     Layout = "../Shared/_Layout.cshtml";
-
 }
 
 <!DOCTYPE html>
@@ -13,13 +12,17 @@
 <html>
     <head>
         <link href=@Url.Content("~/Content/GarmentsEdit.css") rel="stylesheet" type="text/css" />
+        <link href=@Url.Content("~/Content/SharedDescriptorEdit.css") rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="Content" class="GarmentsForm">
-            @using (Html.BeginForm("Garment", "update"))
+            @using (Html.BeginForm("Fabric", "update"))
             {
-                <h1 class="Section">Edit Garments Partial Again</h1>
-                @Html.Partial("SharedDescriptorEdit", Model)
+                <h1 class="Section">Edit Fabric</h1>
+                
+              <div class="SolidLine">
+                @Html.Partial("ColorsEdit", Model.FabricInfo.ColorModels)
+            </div>
                 
                 <input id="ButtonSave" type="submit" value="Save" />
             }

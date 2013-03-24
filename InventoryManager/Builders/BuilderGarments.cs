@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using InventoryManager.DataAccess;
 using InventoryManager.Mappers;
 using InventoryManager.Models;
@@ -19,8 +17,8 @@ namespace InventoryManager.Builders
 
     internal class BuilderGarments : TableNames, IBuilderGarments
     {
-        private readonly IDataAccess _dataAccess = new DataAccess.DataAccess();
         private readonly IMapperGarments _mapperGarments = new MapperGarments();
+        private readonly IDataAccess _dataAccess = new DataAccess.DataAccess();
         private readonly IMapperShared _mapperShared = new MapperShared();
 
         public void UpdateGarment(GarmentsFullModel newGarment)
@@ -158,7 +156,7 @@ namespace InventoryManager.Builders
             return _mapperShared.MapCutModel(dataRecords);
         }
 
-        public List<ColorModel> GetColors()
+        private List<ColorModel> GetColors()
         {
             var dataRecords = _dataAccess.DataSelect(new ColorModel(), ColorTablename, ColorId, string.Empty);
             return _mapperShared.MapColorModel(dataRecords);

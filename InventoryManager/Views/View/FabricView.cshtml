@@ -1,0 +1,23 @@
+﻿@model List<InventoryManager.Models.FabricFullModel>
+
+@{
+    ViewBag.Title = "Fabric View";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <h2>@ViewBag.Title</h2>
+    </head>
+    <body>
+        <div class="Fabric" >
+            Fabric goes here
+                <li>
+                    <a href="@Href("~/edit/Fabrics")">New Fabric</a>
+                </li>
+        </div>
+    </body>
+</html>
+ 

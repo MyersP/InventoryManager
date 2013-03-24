@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using InventoryManager.Models;
 
 namespace InventoryManager.Controllers
@@ -29,19 +25,30 @@ namespace InventoryManager.Controllers
         }
 
         [HttpPost]
-        public ActionResult Garment(GarmentPostBackModel Model)
+        public ActionResult Garment(GarmentPostBackModel model)
         {
-
-
           //handle all the input from a new garment being entered.
             //how do I tie fabric to the garment, not there yet, need it first. DAMN.
-           var id = Model;
+           var id = model;
           for (int i=0; i<10;i++)
             {
                 id.ToString();
             }
 
             return RedirectToAction("Garments", "View", new { id });
+        }
+
+        [HttpPost]
+        public ActionResult Fabric(FabricPostBackModel Model)
+        {
+
+            //   var id = Model;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    id.ToString();
+            //}
+
+            return RedirectToAction("Fabric", "View", new { });
         }
 
 

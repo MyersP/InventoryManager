@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace InventoryManager.Models
+﻿namespace InventoryManager.Models
 {
     public class GarmentsModel
     {
@@ -19,14 +17,9 @@ namespace InventoryManager.Models
         public string GarmentId ;
     }
 
-
     public class NewGarmentModel
     {
         public GarmentsFullModel GarmentsFullModel;
         public SharedInfoModel GarmentInfo;
-
-
     }
-
-
 }

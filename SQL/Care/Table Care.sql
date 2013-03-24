@@ -14,13 +14,16 @@ CREATE TABLE [dbo].[tlkp_Care](
 	[Bleach] [int] NULL,
 	[Iron] [bit] NOT NULL,
 	[IronSteam] [bit] NOT NULL,
-	[tlkp_DryTemp_ID] [int] NULL,
-	[tlkp_IronTemp_ID] [int] NULL,
-	[tlkp_DryCycle_ID] [int] NULL,
-	[tlkp_WashTemp_ID] [int] NULL,
-	[tlkp_WashType_ID] [int] NULL
+	[DryTempID] [int] NULL,
+	[IronTempID] [int] NULL,
+	[DryCycleID] [int] NULL,
+	[WashTempID] [int] NULL,
+	[WashTypeID] [int] NULL
 ) ON [PRIMARY]
 
 GO
+/*
 
---drop table [tlkp_Care]
+drop table [tlkp_Care]
+
+*/

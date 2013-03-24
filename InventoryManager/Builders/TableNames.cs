@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using InventoryManager.DataAccess;
 
 namespace InventoryManager.Builders
 {
     public class TableNames
     {
+
         //Contacts
         public static readonly string ContactsTablename = "tbl_Contacts";
         public static readonly string ContactsId = "ID";
@@ -47,6 +45,28 @@ namespace InventoryManager.Builders
         public static readonly string TrimNamesTablename = "tlkp_TrimNames";
         public static readonly string TrimNamesId = "TrimNameID";
 
-   
+        public static readonly string FabricTableName = "tbl_Fabric";
+        public static readonly string FabricId = "FabricID";
+        public static readonly string WeaveTableName = "tlkp_Weave";
+        public static readonly string WeaveId = "WeaveID";
+        public static readonly string WidthTableName = "tlkp_FabricWidth";
+        public static readonly string WidthId = "WidthID";
+
+        public static readonly string CareTableName = "tlkp_Care";
+        public static readonly string CareId = "CareID";
+        public static readonly string FiberTableName = "tbl_FiberContent";
+        public static readonly string FibereId = "FiberID";
+
+        public static readonly string DryTempTableName = "tlkp_DryTemp";
+        public static readonly string DryCycleTableName = "tlkp_DryCycle";
+        public static readonly string WashTempTableName = "tlkp_WashTemp";
+        public static readonly string WashTypeTableName = "tlkp_WashType";
+        public static readonly string IronTempTableName = "tlkp_IronTemp";
+        public static readonly string ID = "ID";
+
+        public static readonly string FiberPercenTableName = "tlkp_FiberPercent";
+        public static readonly string FiberPercentId = "PercentID";
+        public static readonly string FiberTypeTableName = "tlkp_FiberType";
+        public static readonly string FiberId = "FiberID";
     }
 }

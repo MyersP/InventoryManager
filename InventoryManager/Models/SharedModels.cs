@@ -69,7 +69,6 @@ namespace InventoryManager.Models
     {
         public string EmbelishmentID { get; set; }
         public string EmbelishmentName { get; set; }
-
     }
 
     public class CutNamesModel

@@ -11,7 +11,8 @@ GO
 CREATE TABLE [dbo].[tblmm_GarmentFabrics](
 	[GarmentFabricID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FabricID] [int] NULL,
-	[GarmentID] [int] NULL
+	[GarmentID] [int] NULL,
+	[Quantity] [int] NULL
 ) ON [PRIMARY]
 
 GO

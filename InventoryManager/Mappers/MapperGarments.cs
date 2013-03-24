@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using InventoryManager.DataAccess;
 using InventoryManager.Models;
 
 namespace InventoryManager.Mappers
@@ -18,8 +16,6 @@ namespace InventoryManager.Mappers
 
     public class MapperGarments : MapperHelper, IMapperGarments
     {
-
-
         public GarmentsModel MapToGarmentsModel(GarmentsFullModel fullModel)
         {
             return new GarmentsModel()
@@ -131,6 +127,5 @@ namespace InventoryManager.Mappers
                                         GarmentsFullModel = MapEmptyGarmentsFullModel()
                                     };
         }
-
     }
 }

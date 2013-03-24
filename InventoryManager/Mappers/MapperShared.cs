@@ -18,19 +18,6 @@ namespace InventoryManager.Mappers
         List<NameModel> MapNameModel(List<Dictionary<string, string>> dataRecords);
         List<UsesModel> MapUseModel(List<Dictionary<string, string>> dataRecords);
         List<ItemSourceModel> MapItemSourceModel(List<Dictionary<string, string>> dataRecords);
-        //SharedInfoModel MapEmptySharedInfoModel();
-        //List<NameModel> MapEmptyNameModel();
-        //List<PatternNumbersModel> MapEmptyPatternCompaniesModel();
-        //List<LocationModel> MapEmptyLocationModel();
-        //List<GenderModel> MapEmptyGenderModel();
-        //List<LayerModel> MapEmptyLayerModel();
-        //List<EraModel> MapEmptyEraModel();
-        //List<ItemSourceModel> MapEmptyItemSourceModel();
-        //List<UsesModel> MapEmptyUseModel();
-        //List<RegionModel>  MapEmptyRegionModel();
-        //List<EmbelishmentNamesModel> MapEmptyEmbelishMentNamesModel();
-        //List<CutNamesModel> MapEmptyCutNamesModel();
-        //List<ColorModel> MapEmptyColorModel();
         List<PatternNumbersModel> MapPatternModel(List<Dictionary<string, string>> dataRecords);
         List<TrimModel> MapTrimModel(List<Dictionary<string, string>> dataRecords);
         List<BasicContactsModel> MapBasicContactsModel(List<Dictionary<string, string>> dataRecords);
@@ -179,90 +166,5 @@ namespace InventoryManager.Mappers
                 });
             return list;
         }
-
-        //public SharedInfoModel MapEmptySharedInfoModel()
-        //{
-        //   return  new SharedInfoModel()
-        //                            {
-        //                                CutNamesModel = MapEmptyCutNamesModel(),
-        //                                ColorModel = MapEmptyColorModel(),
-        //                                NameModel = MapEmptyNameModel(),
-        //                                EraModel = MapEmptyEraModel(),
-        //                                ItemSourceModel = MapEmptyItemSourceModel(),
-        //                                PatternNumbersModel = MapEmptyPatternCompaniesModel(),
-        //                                EmbelishmentNamesModel = MapEmptyEmbelishMentNamesModel(),
-        //                                RegionModel = MapEmptyRegionModel(),
-        //                                GenderModel = MapEmptyGenderModel(),
-        //                                LayerModel = MapEmptyLayerModel(),
-        //                                LocationModel = MapEmptyLocationModel(),
-        //                                UsesModel = MapEmptyUseModel(), 
-        //                                TrimModel = MapEmtpyTrimModel()
-        //                            };
-        //}
-
-        //private List<TrimModel> MapEmtpyTrimModel()
-        //{
-        //    return new List<TrimModel> { new TrimModel { TrimNameID = string.Empty, TrimName = string.Empty } };
-        //}
-
-        //public List<NameModel> MapEmptyNameModel()
-        //{
-        //    return new List<NameModel> { new NameModel { NameID = string.Empty, Name = string.Empty } };
-        //}
-
-        //public List<PatternNumbersModel> MapEmptyPatternCompaniesModel()
-        //{
-        //    return new List<PatternNumbersModel> { new PatternNumbersModel { PatternNumberID = string.Empty, PatternCompanies = string.Empty } };
-        //}
-
-        //public List<LocationModel> MapEmptyLocationModel()
-        //{
-        //    return new List<LocationModel> { new LocationModel { LocationID = string.Empty, Location = string.Empty } };
-        //}
-
-        //public List<GenderModel> MapEmptyGenderModel()
-        //{
-        //    return new List<GenderModel> { new GenderModel { GenderID = string.Empty, Gender = string.Empty } };
-        //}
-
-        //public List<LayerModel> MapEmptyLayerModel()
-        //{
-        //    return new List<LayerModel> { new LayerModel { LayerID = string.Empty, Layer = string.Empty } };
-        //}
-
-        //public List<EraModel> MapEmptyEraModel()
-        //{
-        //    return new List<EraModel> {new EraModel {EraId = string.Empty, Era = string.Empty}};
-        //}
-
-        //public List<ItemSourceModel> MapEmptyItemSourceModel()
-        //{
-        //    return new List<ItemSourceModel>{ new ItemSourceModel {ItemSourceID = string.Empty, ItemSource = string.Empty }};
-        //}
-
-        //public List<UsesModel> MapEmptyUseModel()
-        //{
-        //    return new List<UsesModel>{ new UsesModel { UsesID = string.Empty, Uses = string.Empty }};
-        //}
-
-        //public List<RegionModel>  MapEmptyRegionModel()
-        //{
-        //    return new List<RegionModel>{ new RegionModel { RegionID = string.Empty, Region = string.Empty }};
-        //}
-
-        //public List<EmbelishmentNamesModel> MapEmptyEmbelishMentNamesModel()
-        //{
-        //    return new List<EmbelishmentNamesModel>{ new EmbelishmentNamesModel { EmbelishmentID = string.Empty, EmbelishmentName = string.Empty }};
-        //}
-
-        //public List<CutNamesModel> MapEmptyCutNamesModel()
-        //{
-        //    return new List<CutNamesModel>{ new CutNamesModel { CutNameID = string.Empty, CutName = string.Empty }};
-        //}
-
-        //public List<ColorModel> MapEmptyColorModel()
-        //{
-        //    return new List<ColorModel>{ new ColorModel { ColorID = string.Empty, Color = string.Empty }};
-        //}
     }
 }

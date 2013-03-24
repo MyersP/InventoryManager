@@ -9,5 +9,6 @@ namespace InventoryManager.Controllers
         // GET: /Default1/
         public IBuilderContacts BuilderContacts = new BuilderContacts();
         public IBuilderGarments BuilderGarments = new BuilderGarments();
+        public IBuilderFabrics BuilderFabrics = new BuilderFabrics();
     }
 }
